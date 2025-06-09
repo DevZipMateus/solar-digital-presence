@@ -85,7 +85,7 @@ const About = () => {
   ];
 
   return (
-    <section id="sobre" className="py-20 bg-background relative overflow-hidden">
+    <section id="sobre" className="py-16 sm:py-20 lg:py-24 bg-background relative overflow-hidden">
       {/* Background image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5" 
@@ -94,56 +94,56 @@ const About = () => {
         }} 
       />
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-12 sm:mb-16 lg:mb-20">
           {/* Content */}
-          <div className="space-y-6 animate-fade-in-up">
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+          <div className="space-y-4 sm:space-y-6 animate-fade-in-up order-2 lg:order-1">
+            <div className="space-y-3 sm:space-y-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
                 Sobre a <span className="text-primary">Solares</span>
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 A Solares Energia Solar é uma empresa especializada em soluções completas 
                 de energia solar, oferecendo atendimento remoto com visitas no local da instalação.
               </p>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">Nossa Missão</h3>
-              <p className="text-muted-foreground">
+            <div className="space-y-3 sm:space-y-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground">Nossa Missão</h3>
+              <p className="text-sm sm:text-base text-muted-foreground">
                 Democratizar o acesso à energia solar limpa e renovável, proporcionando 
                 economia significativa na conta de luz e contribuindo para um futuro mais sustentável.
               </p>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">Nossos Diferenciais</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center text-muted-foreground">
-                  <div className="w-2 h-2 bg-secondary rounded-full mr-3"></div>
-                  Atendimento personalizado e consultoria técnica especializada
+            <div className="space-y-3 sm:space-y-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground">Nossos Diferenciais</h3>
+              <ul className="space-y-2 sm:space-y-3">
+                <li className="flex items-start text-sm sm:text-base text-muted-foreground">
+                  <div className="w-2 h-2 bg-secondary rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Atendimento personalizado e consultoria técnica especializada</span>
                 </li>
-                <li className="flex items-center text-muted-foreground">
-                  <div className="w-2 h-2 bg-secondary rounded-full mr-3"></div>
-                  Financiamento facilitado com as principais instituições
+                <li className="flex items-start text-sm sm:text-base text-muted-foreground">
+                  <div className="w-2 h-2 bg-secondary rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Financiamento facilitado com as principais instituições</span>
                 </li>
-                <li className="flex items-center text-muted-foreground">
-                  <div className="w-2 h-2 bg-secondary rounded-full mr-3"></div>
-                  Garantia estendida e suporte técnico contínuo
+                <li className="flex items-start text-sm sm:text-base text-muted-foreground">
+                  <div className="w-2 h-2 bg-secondary rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Garantia estendida e suporte técnico contínuo</span>
                 </li>
-                <li className="flex items-center text-muted-foreground">
-                  <div className="w-2 h-2 bg-secondary rounded-full mr-3"></div>
-                  Equipe certificada e experiente
+                <li className="flex items-start text-sm sm:text-base text-muted-foreground">
+                  <div className="w-2 h-2 bg-secondary rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Equipe certificada e experiente</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-muted/50 rounded-lg p-6 border border-border/50">
-              <h4 className="font-semibold text-foreground mb-2">Responsáveis Técnicos</h4>
-              <p className="text-sm text-muted-foreground">
+            <div className="bg-muted/50 rounded-lg p-4 sm:p-6 border border-border/50">
+              <h4 className="font-semibold text-foreground mb-2 text-sm sm:text-base">Responsáveis Técnicos</h4>
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 <strong>Pascoal Rodrigues de Alencar Junior</strong> e <strong>Francisco da Costa Passos</strong>
               </p>
-              <p className="text-sm text-muted-foreground mt-2">
+              <p className="text-xs sm:text-sm text-muted-foreground mt-2">
                 Profissionais com vasta experiência em energia solar e comprometidos 
                 com a excelência no atendimento.
               </p>
@@ -151,16 +151,16 @@ const About = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 gap-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6 animate-fade-in-up order-1 lg:order-2" style={{ animationDelay: '0.2s' }}>
             {stats.map((stat, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow duration-300 border-border/50">
-                <CardContent className="space-y-4">
-                  <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <stat.icon className="h-6 w-6 text-primary" />
+              <Card key={index} className="text-center p-3 sm:p-4 lg:p-6 hover:shadow-lg transition-shadow duration-300 border-border/50 h-full">
+                <CardContent className="space-y-2 sm:space-y-3 lg:space-y-4 p-0">
+                  <div className="mx-auto w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <stat.icon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-primary" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">{stat.value}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
                   </div>
                 </CardContent>
               </Card>
@@ -169,18 +169,18 @@ const About = () => {
         </div>
 
         {/* Projects Gallery */}
-        <div className="space-y-8">
-          <div className="text-center space-y-4 animate-fade-in-up">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+        <div className="space-y-6 sm:space-y-8">
+          <div className="text-center space-y-3 sm:space-y-4 animate-fade-in-up">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
               Nossos <span className="text-primary">Projetos</span>
             </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               Confira alguns dos nossos projetos de energia solar já instalados, 
               demonstrando nossa expertise e qualidade na execução.
             </p>
           </div>
 
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <Carousel
               opts={{
                 align: "start",
@@ -190,9 +190,9 @@ const About = () => {
             >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {projectImages.map((image, index) => (
-                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2">
-                    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                      <div className="relative h-64 overflow-hidden">
+                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group h-full">
+                      <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                         <img 
                           src={image.src} 
                           alt={image.alt} 
@@ -204,8 +204,8 @@ const About = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
             </Carousel>
           </div>
         </div>

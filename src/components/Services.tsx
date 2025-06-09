@@ -43,7 +43,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos" className="py-20 bg-muted/30 relative overflow-hidden">
+    <section id="servicos" className="py-16 sm:py-20 lg:py-24 bg-muted/30 relative overflow-hidden">
       {/* Background image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
@@ -52,41 +52,41 @@ const Services = () => {
         }}
       />
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center space-y-4 mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16 lg:mb-20 animate-fade-in-up">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Nossos <span className="text-primary">Serviços</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             Oferecemos soluções completas em energia solar com tecnologia de ponta 
             e equipe altamente qualificada.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/50 bg-card animate-fade-in-up"
+              className="group hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/50 bg-card animate-fade-in-up h-full"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                  <service.icon className="h-8 w-8 text-primary" />
+              <CardHeader className="text-center pb-3 sm:pb-4">
+                <div className="mx-auto mb-3 sm:mb-4 w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                  <service.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
                 </div>
-                <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                <CardTitle className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-muted-foreground">
+                <CardDescription className="text-sm sm:text-base text-muted-foreground">
                   {service.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="pt-0">
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                      <div className="w-2 h-2 bg-secondary rounded-full mr-3 flex-shrink-0"></div>
-                      {feature}
+                    <li key={featureIndex} className="flex items-start text-xs sm:text-sm text-muted-foreground">
+                      <div className="w-2 h-2 bg-secondary rounded-full mr-3 flex-shrink-0 mt-1.5"></div>
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -100,4 +100,3 @@ const Services = () => {
 };
 
 export default Services;
-
