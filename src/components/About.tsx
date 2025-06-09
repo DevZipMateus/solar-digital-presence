@@ -10,6 +10,21 @@ const About = () => {
     { icon: Award, label: 'Anos de Experiência', value: '5+' }
   ];
 
+  const projectImages = [
+    {
+      src: '/lovable-uploads/c3348108-3dad-4e16-8423-04c33a59c298.png',
+      alt: 'Instalação de painéis solares em telhado residencial'
+    },
+    {
+      src: '/lovable-uploads/a5d92ebe-2011-47c3-a964-a10b8a6f61b0.png',
+      alt: 'Vista aérea de sistema solar instalado'
+    },
+    {
+      src: '/lovable-uploads/198668c6-e4af-48c6-aac2-e5c399ea9e6c.png',
+      alt: 'Casa moderna com painéis solares no telhado'
+    }
+  ];
+
   return (
     <section id="sobre" className="py-20 bg-background relative overflow-hidden">
       {/* Background image */}
@@ -21,7 +36,7 @@ const About = () => {
       />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Content */}
           <div className="space-y-6 animate-fade-in-up">
             <div className="space-y-4">
@@ -93,10 +108,40 @@ const About = () => {
             ))}
           </div>
         </div>
+
+        {/* Projects Gallery */}
+        <div className="space-y-8">
+          <div className="text-center space-y-4 animate-fade-in-up">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+              Nossos <span className="text-primary">Projetos</span>
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Confira alguns dos projetos realizados pela nossa equipe especializada
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {projectImages.map((image, index) => (
+              <Card 
+                key={index} 
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in-up group"
+                style={{ animationDelay: `${index * 0.1 + 0.4}s` }}
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={image.src} 
+                    alt={image.alt}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
 export default About;
-
