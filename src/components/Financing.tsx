@@ -62,8 +62,16 @@ const Financing = () => {
   };
 
   return (
-    <section id="financiamento" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="financiamento" className="py-20 bg-muted/30 relative overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1592833159057-6faf163494a9?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
+        }}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             <span className="text-primary">Financiamento</span> Facilitado
@@ -164,3 +172,4 @@ const Financing = () => {
 };
 
 export default Financing;
+

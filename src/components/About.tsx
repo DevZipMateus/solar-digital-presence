@@ -11,8 +11,16 @@ const About = () => {
   ];
 
   return (
-    <section id="sobre" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="sobre" className="py-20 bg-background relative overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1615630859219-0459703c34e6?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
+        }}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-6 animate-fade-in-up">
@@ -91,3 +99,4 @@ const About = () => {
 };
 
 export default About;
+

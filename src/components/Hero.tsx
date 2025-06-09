@@ -11,7 +11,18 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-solar-light-blue/10 to-background overflow-hidden">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1604335398947-c43b8517e4f8?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
+        }}
+      />
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-background/80"></div>
+      
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-solar-orange/10 rounded-full blur-3xl animate-float"></div>
@@ -90,3 +101,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
