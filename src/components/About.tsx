@@ -1,6 +1,13 @@
 
 import { Users, MapPin, Phone, Award } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const About = () => {
   const stats = [
@@ -173,23 +180,33 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {projectImages.map((image, index) => (
-              <Card 
-                key={index} 
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in-up group" 
-                style={{ animationDelay: `${index * 0.1 + 0.4}s` }}
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={image.src} 
-                    alt={image.alt} 
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
-                  />
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-              </Card>
-            ))}
+          <div className="max-w-6xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {projectImages.map((image, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2">
+                    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                      <div className="relative h-64 overflow-hidden">
+                        <img 
+                          src={image.src} 
+                          alt={image.alt} 
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                        />
+                        <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      </div>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
         </div>
       </div>
