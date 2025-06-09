@@ -47,11 +47,11 @@ const ImageModal = ({ selectedImage, onClose }: ImageModalProps) => {
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
     >
-      <div className="relative max-w-4xl max-h-full">
+      <div className="relative w-full h-full max-w-[95vw] max-h-[95vh] flex flex-col">
         <img 
           src={selectedImage.src} 
           alt={selectedImage.alt}
-          className="max-w-full max-h-full object-contain rounded-lg"
+          className="w-full h-full object-contain rounded-lg"
           id="modal-title"
         />
         <Button
@@ -63,8 +63,8 @@ const ImageModal = ({ selectedImage, onClose }: ImageModalProps) => {
         >
           <X className="h-4 w-4" />
         </Button>
-        <div className="absolute bottom-4 left-4 right-4 bg-background/90 text-foreground p-3 rounded-md">
-          <p className="text-sm font-medium" id="modal-description">{selectedImage.alt}</p>
+        <div className="absolute bottom-4 left-4 right-4 bg-background/90 text-foreground p-3 rounded-md max-w-lg mx-auto">
+          <p className="text-sm font-medium text-center" id="modal-description">{selectedImage.alt}</p>
         </div>
       </div>
     </div>
