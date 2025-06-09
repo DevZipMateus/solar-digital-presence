@@ -31,6 +31,20 @@ const ProjectGallery = ({ onImageClick }: ProjectGalleryProps) => {
     return () => clearInterval(interval);
   }, [carouselApi]);
 
+  const handleImageClick = (image: { src: string; alt: string }, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Image clicked:', image.alt);
+    onImageClick(image);
+  };
+
+  const handleKeyPress = (image: { src: string; alt: string }, e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onImageClick(image);
+    }
+  };
+
   return (
     <div className="space-y-6 sm:space-y-8">
       <div className="text-center space-y-3 sm:space-y-4 animate-fade-in-up">
@@ -49,6 +63,7 @@ const ProjectGallery = ({ onImageClick }: ProjectGalleryProps) => {
           opts={{
             align: "start",
             loop: true,
+            dragFree: false,
           }}
           className="w-full"
         >
@@ -60,11 +75,16 @@ const ProjectGallery = ({ onImageClick }: ProjectGalleryProps) => {
                     <img 
                       src={image.src} 
                       alt={image.alt} 
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" 
-                      onClick={() => onImageClick(image)}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer select-none" 
+                      onClick={(e) => handleImageClick(image, e)}
+                      onKeyDown={(e) => handleKeyPress(image, e)}
+                      tabIndex={0}
+                      role="button"
+                      aria-label={`Ampliar imagem: ${image.alt}`}
+                      draggable={false}
                     />
-                    <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       <span className="bg-background/90 text-foreground px-3 py-1 rounded-md text-sm font-medium">
                         Clique para ampliar
                       </span>

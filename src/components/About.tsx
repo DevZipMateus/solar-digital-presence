@@ -9,10 +9,12 @@ const About = () => {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
 
   const openImageModal = (image: { src: string; alt: string }) => {
+    console.log('Opening modal for:', image.alt);
     setSelectedImage(image);
   };
 
   const closeImageModal = () => {
+    console.log('Closing modal');
     setSelectedImage(null);
   };
 
