@@ -16,7 +16,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1604335398947-c43b8517e4f8?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
+          backgroundImage: 'url(/lovable-uploads/e3738bef-e813-4e01-80a0-1c89e3f1571b.png)'
         }}
       />
       
@@ -101,4 +101,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
