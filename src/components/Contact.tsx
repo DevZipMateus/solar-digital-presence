@@ -19,10 +19,29 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
+    // Create WhatsApp message with form data
+    const phone = "5589999779246";
+    let message = `Olá! Gostaria de solicitar um orçamento para energia solar.\n\n`;
+    message += `*Nome:* ${formData.nome}\n`;
+    message += `*Telefone:* ${formData.telefone}\n`;
+    message += `*E-mail:* ${formData.email}\n`;
+    
+    if (formData.mensagem.trim()) {
+      message += `*Mensagem:* ${formData.mensagem}\n`;
+    }
+    
+    message += `\nAguardo retorno para elaboração do orçamento. Obrigado!`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message
     toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve para elaborar seu orçamento.",
+      title: "Redirecionando para WhatsApp!",
+      description: "Você será direcionado para o WhatsApp com sua solicitação preenchida.",
     });
     
     // Reset form
@@ -76,7 +95,7 @@ const Contact = () => {
             <CardHeader>
               <CardTitle className="text-2xl text-foreground">Solicitar Orçamento</CardTitle>
               <CardDescription>
-                Preencha o formulário e receba uma proposta personalizada
+                Preencha o formulário e receba uma proposta personalizada via WhatsApp
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -150,7 +169,7 @@ const Contact = () => {
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 text-lg font-semibold"
                 >
                   <Send className="h-5 w-5 mr-2" />
-                  Enviar Solicitação
+                  Enviar via WhatsApp
                 </Button>
               </form>
             </CardContent>
