@@ -58,7 +58,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Contato</h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-start space-x-2">
-                <Phone className="h-4 w-4 mt-0.5 text-blue-400 flex-shrink-0" />
+                <Phone className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
                 <div>
                   <p>(89) 99977-9246</p>
                   <p>(89) 99981-6228</p>
@@ -66,12 +66,12 @@ const Footer = () => {
               </div>
               
               <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                <Mail className="h-4 w-4 text-primary flex-shrink-0" />
                 <span>pasjunior2@hotmail.com</span>
               </div>
               
               <div className="flex items-start space-x-2">
-                <MapPin className="h-4 w-4 mt-0.5 text-blue-400 flex-shrink-0" />
+                <MapPin className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
                 <div>
                   <p>Rua Sérgio Ferreira, 434</p>
                   <p>Nova Cidade, Simplício Mendes - PI</p>

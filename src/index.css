@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 213 94% 68%;
+    --primary: 210 90% 55%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 36 100% 50%;
@@ -31,7 +31,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 213 94% 68%;
+    --ring: 210 90% 55%;
 
     --radius: 0.5rem;
 
@@ -44,11 +44,11 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Custom solar colors */
-    --solar-blue: 213 94% 68%;
+    /* Custom solar colors - updated to match logo blue */
+    --solar-blue: 210 90% 55%;
     --solar-orange: 36 100% 50%;
-    --solar-light-blue: 213 50% 85%;
-    --solar-dark-blue: 213 94% 45%;
+    --solar-light-blue: 210 50% 85%;
+    --solar-dark-blue: 210 90% 45%;
   }
 
   .dark {
@@ -58,7 +58,7 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 213 94% 68%;
+    --primary: 210 90% 55%;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 36 100% 50%;
     --secondary-foreground: 210 40% 98%;
