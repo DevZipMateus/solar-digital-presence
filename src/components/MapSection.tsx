@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { MapPin, Navigation } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -18,8 +17,7 @@ const MapSection = () => {
   const coordinates: [number, number] = [-40.8547, -7.8547];
 
   const openGoogleMaps = () => {
-    const encodedAddress = encodeURIComponent(address);
-    window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank');
+    window.open('https://www.google.com/maps/search/Rua+S%C3%A9rgio+Ferreira,434+Nova+Cidade,+64700-000+Simpl%C3%ADcio+Mendes+PI/@-7.8602925,-41.9081131,18z?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D', '_blank');
   };
 
   const initializeMap = () => {
