@@ -1,6 +1,7 @@
-
-import { Users, MapPin, Phone, Award } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Users, MapPin, Phone, Award, X } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import {
   Carousel,
   CarouselContent,
@@ -8,8 +9,25 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import type { CarouselApi } from "@/components/ui/carousel";
 
 const About = () => {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+
+  // Auto-scroll effect
+  useEffect(() => {
+    if (!carouselApi) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      carouselApi.scrollNext();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [carouselApi]);
+
   const stats = [
     {
       icon: Users,
@@ -83,6 +101,14 @@ const About = () => {
       alt: 'Sistema de energia solar completo'
     }
   ];
+
+  const openImageModal = (image: { src: string; alt: string }) => {
+    setSelectedImage(image);
+  };
+
+  const closeImageModal = () => {
+    setSelectedImage(null);
+  };
 
   return (
     <section id="sobre" className="py-16 sm:py-20 lg:py-24 bg-background relative overflow-hidden">
@@ -182,6 +208,7 @@ const About = () => {
 
           <div className="max-w-7xl mx-auto">
             <Carousel
+              setApi={setCarouselApi}
               opts={{
                 align: "start",
                 loop: true,
@@ -196,20 +223,50 @@ const About = () => {
                         <img 
                           src={image.src} 
                           alt={image.alt} 
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" 
+                          onClick={() => openImageModal(image)}
                         />
                         <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="bg-background/90 text-foreground px-3 py-1 rounded-md text-sm font-medium">
+                            Clique para ampliar
+                          </span>
+                        </div>
                       </div>
                     </Card>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden sm:flex" />
-              <CarouselNext className="hidden sm:flex" />
+              <CarouselPrevious className="flex -left-6 sm:-left-12" />
+              <CarouselNext className="flex -right-6 sm:-right-12" />
             </Carousel>
           </div>
         </div>
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+          <div className="relative max-w-4xl max-h-full">
+            <img 
+              src={selectedImage.src} 
+              alt={selectedImage.alt}
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute top-4 right-4 bg-background/90 hover:bg-background"
+              onClick={closeImageModal}
+            >
+              <X className="h-4 w-4" />
+            </Button>
+            <div className="absolute bottom-4 left-4 right-4 bg-background/90 text-foreground p-3 rounded-md">
+              <p className="text-sm font-medium">{selectedImage.alt}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
