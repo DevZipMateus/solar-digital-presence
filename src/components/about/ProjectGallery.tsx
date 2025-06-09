@@ -26,7 +26,7 @@ const ProjectGallery = ({ onImageClick }: ProjectGalleryProps) => {
 
     const interval = setInterval(() => {
       carouselApi.scrollNext();
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [carouselApi]);
